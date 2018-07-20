@@ -23,13 +23,10 @@ if file_keys:
     for key in file_keys:
         output_file = key + ".pdf" # The output file name
         print("putting all tifs into ", output_file)
-        filelist = dictTemp[key]
-        pdf_bytes = img2pdf.convert(filelist)
-        # skip the directory if you want to save it locally
-        with open(r'C:\Users\parinita ghorpade\Downloads\{}'.format(
-                output_file), 'wb') as f:
-            print(f.name)
-            f.write(pdf_bytes)
+        with open(r'\\svm-netapp-dlib.in.library.ucla.edu/Projects/DEP/Cuba/bncjm-elfigaro/1886/pdf/{}'.format(output_file), 'wb') as f:
+            filelist = dictTemp[key]
+            img2pdf.convert(filelist, outputstream=f)
+
 
 else:
     print("Couldnt find any tiffs")
