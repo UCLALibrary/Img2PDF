@@ -2,7 +2,7 @@ import img2pdf , os
 from collections import defaultdict
 
 # path to the tiffs
-image_directory = r'\\svm-netapp-dlib.in.library.ucla.edu\Projects\DEP\Cuba\bncjm-elfigaro\1886\test_tiffs'
+image_directory = r'\\svm-netapp-dlib.in.library.ucla.edu\Projects\DEP\Cuba\bncjm-elfigaro\1886\TIFFs'
 
 dictTemp = defaultdict(list)
 for root, dirs, files in os.walk(image_directory):
@@ -25,6 +25,8 @@ if file_keys:
         print("putting all tifs into ", output_file)
         with open(r'\\svm-netapp-dlib.in.library.ucla.edu/Projects/DEP/Cuba/bncjm-elfigaro/1886/pdf/{}'.format(output_file), 'wb') as f:
             filelist = dictTemp[key]
+            filelist.sort();
+            print("List: ",filelist)
             img2pdf.convert(filelist, outputstream=f)
 
 
