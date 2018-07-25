@@ -2,8 +2,7 @@ import img2pdf , os
 from collections import defaultdict
 
 # path to the tiffs
-#path_to_tiffs = input('Enter Path to TIFFs: ')
-# should include the full path, for example '\\svm-netapp-dlib.in.library.ucla.edu\Projects\DEP\Cuba\ihc_lalucha\1928\tiff'
+# should include the full path, for example '\\svm_dlib\Projects\DEP\Cuba\ihc_lalucha\1928\tiff'
 image_directory = input('Enter Path to TIFFs: ')
 pdf_directory = input('Enter Path to PDFs: ')
 
