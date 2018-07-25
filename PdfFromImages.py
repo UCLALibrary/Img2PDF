@@ -26,7 +26,7 @@ if file_keys:
     for key in file_keys:
         output_file = key + ".pdf" # The output file name
         print("putting all tifs into ", output_file)
-        with open((pdf_directory).format(output_file), 'wb') as f:
+        with open((pdf_directory) + '\{}'.format(output_file), 'wb') as f:
             filelist = dictTemp[key]
             filelist.sort();
             print("List: ",filelist)
