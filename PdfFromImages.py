@@ -2,7 +2,10 @@ import img2pdf , os
 from collections import defaultdict
 
 # path to the tiffs
-image_directory = r'\\svm-netapp-dlib.in.library.ucla.edu\Projects\DEP\Cuba\bncjm-elfigaro\1886\TIFFs'
+#path_to_tiffs = input('Enter Path to TIFFs: ')
+# should include the full path, for example '\\svm-netapp-dlib.in.library.ucla.edu\Projects\DEP\Cuba\ihc_lalucha\1928\tiff'
+image_directory = input('Enter Path to TIFFs: ')
+pdf_directory = input('Enter Path to PDFs: ')
 
 dictTemp = defaultdict(list)
 for root, dirs, files in os.walk(image_directory):
@@ -23,18 +26,14 @@ if file_keys:
     for key in file_keys:
         output_file = key + ".pdf" # The output file name
         print("putting all tifs into ", output_file)
-        with open(r'\\svm-netapp-dlib.in.library.ucla.edu/Projects/DEP/Cuba/bncjm-elfigaro/1886/pdf/{}'.format(output_file), 'wb') as f:
+        with open((pdf_directory).format(output_file), 'wb') as f:
             filelist = dictTemp[key]
             filelist.sort();
             print("List: ",filelist)
             img2pdf.convert(filelist, outputstream=f)
 
-
 else:
     print("Couldnt find any tiffs")
-
-
-
 
 #pdf_bytes = img2pdf.convert([r'C:\Users\parinita ghorpade\Downloads\israeliposters\uclalsc_2147_b1_f01_01.tif'])
 
